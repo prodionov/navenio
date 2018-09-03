@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>{{current_user.username}}</h1>
+  <form method="POST" action="">
+    {{ form.hidden_tag()}}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Please enter signal crossing value and signal</legend>
+      <div class="form-group">
+        {{ form.crossing_value.label(class="form-control-label")}} {% if form.crossing_value.errors %} {{form.crossing_value(class="form-control form-control-lg is-invalid")}}
+        <div class="invlaid-feedback">
+          {% for error in form.crossing_value.errors %}
+          <span>{{error}}</span> {% endfor %}
+        </div>
+        {% else %} {{ form.crossing_value(class="form-control-lg")}} {% endif %}
+      </div>
+      <div class="form-group">
+        <h4>signal values should be separated with space</h4>
+        {{ form.signal.label(class="form-control-label")}} {% if form.signal.errors %} {{form.signal(class="form-control form-control-lg is-invalid")}}
+        <div class="invlaid-feedback">
+          {% for error in form.signal.errors %}
+          <span>{{error}}</span> {% endfor %}
+        </div>
+        {% else %} {{ form.signal(class="form-control-lg")}} {% endif %}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{form.submit(class="btn btn-outline-info")}}
+    </div>
+  </form>
+  <h2>Number of crossings = {{counter}}</h2>
+{% endblock content%}
