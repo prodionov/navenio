@@ -20,3 +20,9 @@ Install dependencies from the requirements.txt
 $pip install -r requirements.txt
 ```
 
+To start an application
+```
+python run.py
+```
+and open localhost:5000 in your browser
+
