@@ -36,11 +36,11 @@ password = agent`
 If you use Postman
 add credentials and headers `'Content-Type':'application/json'`
 
-<img src="https://user-images.githubusercontent.com/19667238/45017283-2077d880-b01f-11e8-8364-d323b98788f6.png" width="400" />
+<img src="https://user-images.githubusercontent.com/19667238/45017283-2077d880-b01f-11e8-8364-d323b98788f6.png" width="700" />
 
 send your request and you will receive the result back
 
-<img src="https://user-images.githubusercontent.com/19667238/45017621-f70b7c80-b01f-11e8-8c0b-4ef59c6afad6.png" width="400"/>
+<img src="https://user-images.githubusercontent.com/19667238/45017621-f70b7c80-b01f-11e8-8c0b-4ef59c6afad6.png" width="700"/>
 
 ### Option 2.
 Visit localhost:5000, register on the website manually, login and you will be redirected to a page with a form where you can add request data manually and receive a result on screen.
