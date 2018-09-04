@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for, flash, redirect, request
-from navenio import app, db, bcrypt
+from flask import Flask, render_template, url_for, flash, redirect, request, jsonify
+from navenio import app, db, bcrypt, basic_auth
 from navenio.forms import RegistrationForm, LoginForm, SignalCrossing
 from navenio.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from navenio.crossings import get_number_of_value_crossings
+
 
 @app.route("/")
 @app.route("/home")
@@ -64,3 +65,13 @@ def calcs():
         except:
             flash('wrong input', 'danger')
     return render_template('calcs.html', title='Calcs', form=form, counter = counter)
+
+@app.route("/remote", methods=['GET', 'POST'])
+@basic_auth.required
+def remote():
+    req_data = request.get_json()
+
+    signal = req_data['signal']
+    value = req_data['value']
+    counter = get_number_of_value_crossings(signal, value)
+    return jsonify(counter)
